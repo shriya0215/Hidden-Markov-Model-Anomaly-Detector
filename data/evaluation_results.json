@@ -1,0 +1,119 @@
+{
+  "best_k": 8,
+  "selection_summary": "Chosen K=8 hidden states based on minimum BIC (84459.63) and strong holdout validation log-likelihood (-6.8486 per sample). This captures the distinct physical operational regimes (e.g. Idle, Nominal Steady-State, and Peak Machining) without unnecessary parameter inflation (p=135).",
+  "threshold": -159.37170021611772,
+  "metrics": {
+    "true_positives": 1031,
+    "false_positives": 158,
+    "true_negatives": 6109,
+    "false_negatives": 673,
+    "precision": 0.8671152228763667,
+    "recall": 0.6050469483568075,
+    "f1_score": 0.7127549256826823,
+    "specificity": 0.9747885750757939,
+    "roc_auc": 0.8637010617505362,
+    "pr_auc": 0.762929915534761
+  },
+  "latency": [
+    {
+      "anomaly_type": "bearing_chatter",
+      "start_idx": 1200,
+      "end_idx": 1520,
+      "duration_sec": 32.0,
+      "detected": true,
+      "latency_samples": 98,
+      "latency_sec": 9.8,
+      "description": "High-frequency harmonic resonance indicating bearing cage failure"
+    },
+    {
+      "anomaly_type": "thermal_friction_drift",
+      "start_idx": 2600,
+      "end_idx": 3120,
+      "duration_sec": 52.0,
+      "detected": true,
+      "latency_samples": 54,
+      "latency_sec": 5.4,
+      "description": "Continuous thermal runaway due to severe lubrication breakdown"
+    },
+    {
+      "anomaly_type": "transient_impact_spikes",
+      "start_idx": 4200,
+      "end_idx": 4360,
+      "duration_sec": 16.0,
+      "detected": true,
+      "latency_samples": 2,
+      "latency_sec": 0.2,
+      "description": "Periodic high-amplitude impact spikes from broken cutter inserts"
+    },
+    {
+      "anomaly_type": "sensor_freeze",
+      "start_idx": 5496,
+      "end_idx": 5800,
+      "duration_sec": 30.4,
+      "detected": true,
+      "latency_samples": 0,
+      "latency_sec": 0.0,
+      "description": "Sensor telemetry frozen due to bus communication failure"
+    },
+    {
+      "anomaly_type": "regime_sequence_violation",
+      "start_idx": 6800,
+      "end_idx": 7200,
+      "duration_sec": 40.0,
+      "detected": true,
+      "latency_samples": 1,
+      "latency_sec": 0.1,
+      "description": "Rapid abnormal hunting/chatter between idle and peak load regimes"
+    }
+  ],
+  "threshold_sweep": [
+    {
+      "percentile": 0.1,
+      "threshold": -165.3212108666489,
+      "precision": 0.9343780607247796,
+      "recall": 0.5598591549295775,
+      "f1_score": 0.7001834862385321,
+      "false_positive_rate": 0.010690920695707675
+    },
+    {
+      "percentile": 0.5,
+      "threshold": -160.62303567301157,
+      "precision": 0.8890829694323145,
+      "recall": 0.5974178403755869,
+      "f1_score": 0.7146367146367146,
+      "false_positive_rate": 0.020264879527684698
+    },
+    {
+      "percentile": 1.0,
+      "threshold": -159.37170021611772,
+      "precision": 0.8671152228763667,
+      "recall": 0.6050469483568075,
+      "f1_score": 0.7127549256826823,
+      "false_positive_rate": 0.02521142492420616
+    },
+    {
+      "percentile": 2.0,
+      "threshold": -156.79234615835725,
+      "precision": 0.799396681749623,
+      "recall": 0.6220657276995305,
+      "f1_score": 0.6996699669966997,
+      "false_positive_rate": 0.0424445508217648
+    },
+    {
+      "percentile": 5.0,
+      "threshold": -153.40276299935138,
+      "precision": 0.7089018843404808,
+      "recall": 0.6402582159624414,
+      "f1_score": 0.6728337958680234,
+      "false_positive_rate": 0.07148555927876177
+    },
+    {
+      "percentile": 10.0,
+      "threshold": -150.36541811724277,
+      "precision": 0.6089324618736384,
+      "recall": 0.6561032863849765,
+      "f1_score": 0.631638418079096,
+      "false_positive_rate": 0.11456837402265838
+    }
+  ]
+}
