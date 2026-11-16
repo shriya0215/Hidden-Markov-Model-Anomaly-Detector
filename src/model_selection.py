@@ -98,6 +98,7 @@ class HMMModelSelector:
         best_bic = float("inf")
 
         for k in self.candidate_states:
+            print(f"  [+] Evaluating K = {k} Hidden States...", end="", flush=True)
             p = calculate_hmm_free_parameters(k, n_features, self.covariance_type)
 
             best_train_ll = float("-inf")
@@ -125,7 +126,10 @@ class HMMModelSelector:
                     continue
 
             if best_model_for_k is None:
+                print(" [Skipped]", flush=True)
                 continue
+
+            print(" [Done]", flush=True)
 
             # Evaluate on holdout validation set
             val_ll = best_model_for_k.score(X_val, lengths=val_lengths)

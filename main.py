@@ -13,9 +13,13 @@ Workflow:
 
 import sys
 import json
+import warnings
 import numpy as np
 import pandas as pd
 from pathlib import Path
+
+# Suppress harmless EM convergence warnings from hmmlearn for clean output
+warnings.filterwarnings("ignore")
 
 # Ensure workspace root is in python path
 WORKSPACE_ROOT = Path(__file__).resolve().parent
